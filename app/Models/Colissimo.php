@@ -5,16 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class State extends Model
+class Colissimo extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'slug',
-        'color',
-        'indice',
+        'price', 'country_id', 'range_id',
         ];
-    public function orders(){
-        return $this->hasMany(Order::class);
-    }
 }

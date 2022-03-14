@@ -13,7 +13,7 @@ class OrderFactory extends Factory
      */
     public function definition()
     {
-        $pick = $faker->boolean();
+        $pick = $this->faker->boolean();
         $payment = ['carte', 'mandat', 'virement', 'cheque'][mt_rand(0, 3)];
         if($payment === 'carte') {
         $state_id = [4, 5, 6, 8, 9, 10][mt_rand(0, 5)];
@@ -47,7 +47,7 @@ class OrderFactory extends Factory
         'tax' => [0, .2][mt_rand(0, 1)],
         'invoice_id' => $invoice_id,
         'invoice_number' => $invoice_number,
-        'created_at' => $faker->dateTimeBetween('-2 years'),
+        'created_at' => $this->faker->dateTimeBetween('-2 years'),
         ];
         
     }

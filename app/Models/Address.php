@@ -22,5 +22,11 @@ class Address extends Model
         'phone',
         'country_id',
         ];
-        
+    public function User(){
+        return $this->belongsTo(User::class);
+    }
+    public function Country(){
+        return $this->belongsTo(Country::class);
+    }
+
 }
