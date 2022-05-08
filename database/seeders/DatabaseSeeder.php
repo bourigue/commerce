@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Address;
 use App\Models\Colissimo;
 use App\Models\Country;
-use App\Models\Models\Product;
+use App\Models\Product;
 use App\Models\Order;
 use App\Models\Page;
 use App\Models\Range;
@@ -72,11 +72,11 @@ class DatabaseSeeder extends Seeder
                     Address::factory( mt_rand(2, 3))->make()->toArray()
                 );
             });
-        $user = User::find(1);
-        $user->admin = true;
-        $user = User::find(10);
-        $user->admin = false;
-        $user->save();
+        //$user = User::find(1);
+        //$user->admin = true;
+        //$user = User::find(10);
+        //$user->admin = false;
+        //$user->save();
         Product::factory()->count(6)->create();
         Shop::factory()->create();
         $items = [
@@ -130,7 +130,7 @@ class DatabaseSeeder extends Seeder
                     );
                 }
                 if ($order->payment === 'carte' && $order->state_id === 8) {
-                    $order->payment_infos()->create(['payment_id' => (string) Str::uuid()]);
+                    $order->payment_infos()->create(['payment_id' => (string) String::uuid()]);
                 }
                 $order->tax = $countryId > 2 ? 0 : .2;
                 $order->total = $total;
